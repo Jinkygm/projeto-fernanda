@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estoque e Lucro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-boxes"></i> Controle de Estoque</h1>
+        
+        <div class="form-container">
+            <h2>Adicionar Produto</h2>
+            <form id="product-form">
+                <div class="form-group">
+                    <label for="product-name">Nome do Produto:</label>
+                    <input type="text" id="product-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-image">Imagem do Produto (URL):</label>
+                    <input type="url" id="product-image" placeholder="https://exemplo.com/imagem.jpg">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cost-price">Preço de Custo (R$):</label>
+                        <input type="number" id="cost-price" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sale-price">Preço de Venda (R$):</label>
+                        <input type="number" id="sale-price" step="0.01" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quantity">Quantidade em Estoque:</label>
+                    <input type="number" id="quantity" required>
+                </div>
+                
+                <button type="submit" class="btn"><i class="fas fa-plus"></i> Adicionar Produto</button>
+            </form>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Pesquisar produto...">
+            <i class="fas fa-search"></i>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>Total em Estoque</h3>
+                <p id="total-stock">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Lucro Total Potencial</h3>
+                <p id="total-profit">R$ 0,00</p>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="profitChart"></canvas>
+        </div>
+        
+        <div class="products-container" id="products-list">
+            <!-- Produtos serão adicionados aqui dinamicamente -->
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
